@@ -8,18 +8,20 @@
                 <h2>Trending</h2>
             </div><!--/.section-header-->
 
-            
             <div class="new-arrivals-content">                
                 <div class="row">
+                    {% for products in product %} 
                     <div class="col-md-3 col-sm-4">
-                        {% for products in product %}                        
+                                               
                         <div class="single-new-arrival">
                             <div class="single-new-arrival-bg">
                                 <img src="{{ products.image.url }}" alt="new-arrivals images">
                                 <div class="single-new-arrival-bg-overlay"></div>
+                                {% if products.stock %}
                                 <div class="sale bg-1">
                                     <p>{{ products.stock }}</p>
                                 </div>
+                                {% endif %}
                                 <div class="new-arrival-cart">
                                     <p>
                                         <span class="lnr lnr-cart"></span>
@@ -34,8 +36,9 @@
                             <h4><a href="#">{{ products.title }}</a></h4>
                             <p class="arrival-product-price">BDT {{ products.price }}</p>
                         </div>
-                        {% endfor %}
-                    </div>                    
+                        
+                    </div>  
+                    {% endfor %}                  
                 </div>                
             </div>            
         </div><!--/.container-->    
