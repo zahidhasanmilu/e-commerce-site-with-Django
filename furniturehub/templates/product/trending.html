@@ -1,7 +1,11 @@
 {% extends 'base/base.html' %}
 
+
+    
 	{% block body %}
-	{% include 'base/header.html' %}
+    {% include 'base/navbar.html' %}
+    <br>
+    <br>
     <section id="new-arrivals" class="new-arrivals">
         <div class="container">
             <div class="section-header">
@@ -19,7 +23,11 @@
                                 <div class="single-new-arrival-bg-overlay"></div>
                                 {% if products.stock %}
                                 <div class="sale bg-1">
-                                    <p>{{ products.stock }}</p>
+                                    <p>In Stock</p>
+                                </div>
+                                {% else %}
+                                <div class="sale bg-1">
+                                    <p>Stock Out</p>
                                 </div>
                                 {% endif %}
                                 <div class="new-arrival-cart">
@@ -34,7 +42,7 @@
                                 </div>
                             </div>
                             <h4><a href="#">{{ products.title }}</a></h4>
-                            <p class="arrival-product-price">BDT {{ products.price }}</p>
+                            <p class="arrival-product-price">BDT. {{ products.price }}</p>
                         </div>
                         
                     </div>  
@@ -44,6 +52,5 @@
         </div><!--/.container-->    
     </section><!--/.new-arrivals-->
     <!--new-arrivals end -->
-
-    {% include 'base/footer.html' %}
     {% endblock body%}
+    

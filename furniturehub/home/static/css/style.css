@@ -589,15 +589,15 @@ ul.cart-list > li.total {
     position: absolute;
     top: 10px;
     right: 0;
-    width: 60px;
+    width: 80px;
     height: 30px;
     line-height: 30px;
     text-align: center;
 }
 .sale p{color: #fff;font-weight: 500;font-size:14px;line-height: 2.2;}
 
-.sale.bg-1{background: #d8924c;}
-.sale.bg-2{background: #47d93c;}
+.sale.bg-1{background: #fd0000;}
+.sale.bg-2{background: #3fd6cf;}
 
 .new-arrival-cart {
     position: absolute;

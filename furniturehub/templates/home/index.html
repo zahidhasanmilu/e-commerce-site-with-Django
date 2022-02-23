@@ -1,7 +1,8 @@
 {% extends 'base/base.html' %}
 
-	{% block body %}
-	{% include 'base/header.html' %}
+{% block body %}
+
+{% include 'base/navbar.html' %}	
 	<!--populer-products start -->
 		<section id="populer-products" class="populer-products">
 			<div class="container">
@@ -75,39 +76,46 @@
 				<div class="section-header">
 					<h2>Trending</h2>
 				</div><!--/.section-header-->
-				<div class="new-arrivals-content">
+	
+				<div class="new-arrivals-content">                
 					<div class="row">
 						{% for products in product %} 
-                    <div class="col-md-3 col-sm-4">                                               
-                        <div class="single-new-arrival">
-                            <div class="single-new-arrival-bg">
-                                <img src="{{ products.image.url }}" alt="new-arrivals images">
-                                <div class="single-new-arrival-bg-overlay"></div>
-                                <div class="sale bg-1">
-                                    <p>{{ products.stock }}</p>
-                                </div>
-                                <div class="new-arrival-cart">
-                                    <p>
-                                        <span class="lnr lnr-cart"></span>
-                                        <a href="#">add <span>to </span> cart</a>
-                                    </p>
-                                    <p class="arrival-review pull-right">
-                                        <span class="lnr lnr-heart"></span>
-                                        <span class="lnr lnr-frame-expand"></span>
-                                    </p>
-                                </div>
-                            </div>
-                            <h4><a href="#">{{ products.title }}</a></h4>
-                            <p class="arrival-product-price">BDT {{ products.price }}</p>
-                        </div>                        
-                    </div>  
-                    {% endfor %} 						
-					</div>
-				</div>
-			</div><!--/.container-->
-		
+						<div class="col-md-3 col-sm-4">
+												   
+							<div class="single-new-arrival">
+								<div class="single-new-arrival-bg">
+									<img src="{{ products.image.url }}" alt="new-arrivals images">
+									<div class="single-new-arrival-bg-overlay"></div>
+									{% if products.stock %}
+									<div class="sale bg-1">
+										<p>In Stock </p>
+									</div>
+									{% else %}
+									<div class="sale bg-2">
+										<p>Unavailable</p>
+									</div>
+									{% endif %}
+									<div class="new-arrival-cart">
+										<p>
+											<span class="lnr lnr-cart"></span>
+											<a href="#">add <span>to </span> cart</a>
+										</p>
+										<p class="arrival-review pull-right">
+											<span class="lnr lnr-heart"></span>
+											<span class="lnr lnr-frame-expand"></span>
+										</p>
+									</div>
+								</div>
+								<h4><a href="#">{{ products.title }}</a></h4>
+								<p class="arrival-product-price">BDT. {{ products.price }}</p>
+							</div>
+							
+						</div>  
+						{% endfor %}                  
+					</div>                
+				</div>            
+			</div><!--/.container-->    
 		</section><!--/.new-arrivals-->
-		<!--new-arrivals end -->
 
 		<!--sofa-collection start -->
 		<section id="sofa-collection">
@@ -328,5 +336,4 @@
 
 		</section><!--/.clients-->	
 		<!-- clients end -->
-{% include 'base/footer.html' %}
 {% endblock body %}

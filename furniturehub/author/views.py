@@ -4,7 +4,8 @@ from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 
-def signup(request):    
+def signup(request):
+    
     if request.method == 'POST':
         first_name = request.POST['fname']
         last_name = request.POST['lname']
@@ -20,10 +21,11 @@ def signup(request):
             #return render(request,'home/home.html') 
             return redirect('home')  
         return render(request, 'author/signup.html', context={'invalid': True})              
-    return render(request,'author/signup.html')
+    return render(request,'author/signup.html',context={'page_name':'Signup'})
 
 
 def signin(request):
+    
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -34,8 +36,8 @@ def signin(request):
         if user:
             login(request,user)
             return redirect ('home')
-        return render(request,'author/signin.html', context={'invalid':True})        
-    return render(request,'author/signin.html')
+        return render(request,'author/signin.html', context={'invalid':True,})        
+    return render(request,'author/signin.html', context={'page_name':'Signin'})
 
 
 def signout(request):
